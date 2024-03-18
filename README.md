@@ -12,8 +12,8 @@ const uri = 'https://countries.trevorblades.com/graphql'; // <-- add the URL of 
 
 Create libs folder and run next 2 commands there
 ```
-nx generate @nrwl/angular:library data-access --style scss
-nx generate @nrwl/angular:library feature-countries --style scss
+nx generate @nrwl/angular:library libs/data-access --style scss
+nx generate @nrwl/angular:library libs/feature-countries --style scss
 ```
 ```
 npm install --save-dev @graphql-codegen/cli @graphql-codegen/typescript-operations @graphql-codegen/typescript-apollo-angular
@@ -157,6 +157,35 @@ import { CountriesListComponent } from '@nx-apollo-angular-example/feature-sets'
 })
 export class AppComponent {
   title = 'nx-apollo-angular-example';
+}
+
+```
+```
+# app.component.html
+
+<h1>My Lego Sets</h1>
+<div class="flex">
+  <lib-countries-list></lib-countries-list>
+</div>
+<router-outlet></router-outlet>
+
+```
+
+```
+# app.component.scss
+
+h1 {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+lib-countries-list {
+  flex: 1;
+  padding: 8px;
 }
 
 ```
